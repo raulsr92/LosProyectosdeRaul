@@ -1,0 +1,107 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+}
+main{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    background-color: #F2F2F2;
+}
+
+.container-child{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.container-child p{
+    background-color: #707070;
+    color: white;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    border: 0.1rem #707070 solid;
+    border-radius: 0.3rem;
+    padding: 0.4rem 0.2rem;
+    height: 3.5rem;
+}
+
+.main-container{
+    background-color: #FFFFFF;
+    width: 22rem;
+    height: 27rem;
+    display: grid;
+    row-gap: 0.2rem;
+    place-items: center;
+    place-self: center;
+    border: 0.1rem #F2F2F2 solid;
+    border-radius: 0.6rem;
+    grid-template-rows: [premier] 7rem [date] 4rem [team] 5rem [names] 2rem [buy] 7rem;
+}
+
+.logo-equipo{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.logo-competition{
+    width: 10rem;
+    height: 4rem;
+    place-self: center;
+}
+
+.main-container div:nth-child(1){
+    background-color: #EC7063 ;
+    width: 14rem;
+    height: 4rem;
+    border-radius: 0.8rem;
+    display: grid;
+    position: relative;
+    top:-3rem;
+}
+
+.text-container{
+    width: 12rem;
+    height: 3rem;
+    display: grid;
+    justify-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-container p{
+    color: #707070;
+}
+
+.text-container-dos p{
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.text-container-dos p:nth-child(2){
+    color: #707070;
+}
+
+.text-container-dos p:nth-child(1), .text-container-dos p:nth-child(3) {
+    font-weight: bold;
+}
+
+.main-container button{
+    border-radius: 4rem;
+    border: 0.1rem solid #C0C0C0;
+    background-color: white;
+    width: 12rem;
+    height: 4rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+
+
