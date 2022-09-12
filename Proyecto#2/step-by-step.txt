@@ -124,7 +124,17 @@ footer{
          $ git add CSS/
     d. Ahora la carpeta iconos
         $ git add Iconos/
-14° En la GIT bash, realizar COMMIT para esta primera FASE
+14° En la GIT bash, realizar COMMIT para la FASE 1°
+    $ git commit -m "Commit de la Fase 1 - posicionamiento de los contenedores"
+   
+    Nota: Con un solo commit se envia todo lo del STAGING AREA
+
+15° Realizar buena práctica: GIT PULL antes de enviar los cambios al repositorio remoto 
+    $ git pull origin master
+16° Enviar los cambios al repositorio remoto (Git Hub)
+    $ git push origin master
+
+
 
 Fase 2 Elaborar el Header - HTML 
 - Descargar los íconos para el HEADER y ubicarlos dentro de la carpeta "Íconos". En este caso los elaboré en figma y los exporté como png 
