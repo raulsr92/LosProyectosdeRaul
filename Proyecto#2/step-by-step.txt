@@ -1,0 +1,140 @@
+Creación de un clon de la página web de Google
+Nota: vamos a hacer el diseño para móviles y para desktop
+
+1) DISEÑO PARA MÓVILES (abrir google en el móvil)
+
+Fase 1 Posicionamiento de los Contenedores
+1° Crear un archivo css para el diseño móvil y relacionarlo al documento html a través de <link>
+2° Establecer las propiedades globales de CSS en el archivo creado.
+*{
+    box-sizing: border-box;
+    border: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 62.5%
+}
+
+3° Ubicar el contenedor <div>  como elemento padre de los contenedores header, main y footer
+    <div>
+
+    </div>
+4° Ubicar el contenedor <header> en el código, con el texto Header por dentro
+    <header>
+        Header
+    </header>
+
+5° Ubicar el contenedor <main> en el código, con el texto Main por dentro
+        <main>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum iusto voluptate veniam fugiat. Quia dicta culpa, magnam perspiciatis totam minus accusantium blanditiis labore asperiores corporis ipsam impedit deserunt repellendus ullam.
+        </main>
+
+6° Ubicar el contenedor <footer> en el código, con el texto Footer por dentro
+    <footer>
+        Footer
+    </footer>
+
+7° En el archivo css, agregarles un color de fondo ramdom con la propiedad CSS: background-color
+header{
+    background-color: rebeccapurple;
+}
+
+main{
+    background-color: aqua;
+}
+
+footer{
+    background-color: orange;
+}
+8° En archivo CSS, aplicar la propiedad display: flex al elemento padre <div>
+
+div{
+    display: flex;
+}
+
+9° En archivo CSS, aplicar la propiedad flex-wrap: wrap
+div{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+10° En el archivo CSS, en cada elemento hijo que lo necesite (header, main y/o footer) añadir la siguiente propiedad flex-grow para que abarque el espacio sobrante en su fila.
+header{
+    background-color: rebeccapurple;
+    flex-grow: 1;
+}
+
+main{
+    background-color: aqua;
+    flex-grow: 1;
+}
+
+footer{
+    background-color: orange;
+    flex-grow: 1;
+}
+
+11° En el archivo CSS, en cada elmento hijo que lo necesite (header, main y/o footer), añadirle un ancho del 100%
+header{
+    background-color: rebeccapurple;
+    flex-grow: 1;
+    width: 100%;
+}
+
+main{
+    background-color: aqua;
+    flex-grow: 1;
+    width: 100%;
+}
+
+footer{
+    background-color: orange;
+    flex-grow: 1;
+    width: 100%;
+}
+
+12° En el archivo CSS, a cada elemento hijo, agregar una propiedad para establecer su altura, y entre los 3 contenedores deben sumar 100%
+header{
+    background-color: rebeccapurple;
+    flex-grow: 1;
+    width: 100%;
+    height: 15vh;
+}
+
+main{
+    background-color: aqua;
+    flex-grow: 1;
+    width: 100%;
+    height: 60vh;
+}
+
+footer{
+    background-color: orange;
+    flex-grow: 1;
+    width: 100%;
+    height: 25vh;
+}
+
+13° En la GIT bash agregar al STAGING AREA los archivos modificados
+    a. Empezamos por el archivo index.html
+         $ git add index.html
+    b. Ahora el presente archivo
+    c. Ahora el la carpeta CSS
+         $ git add CSS/
+    d. Ahora la carpeta iconos
+        $ git add Iconos/
+14° En la GIT bash, realizar COMMIT para esta primera FASE
+
+Fase 2 Elaborar el Header - HTML 
+- Descargar los íconos para el HEADER y ubicarlos dentro de la carpeta "Íconos". En este caso los elaboré en figma y los exporté como png 
+- Ubicar el elemento <img> para ubicar el ícono de menú, este elemento debe ir dentro del contenedor <picture>
+- Ubicar el contenedor <nav> dentro de <header>
+- Ubicar el contenedor <ul> dentro de <nav> para crear una lista donde estarán las opciones "gmail" y "images"
+- Dentro de <ul> ubicar los elementos <li>, y dentro de cada <li> irá un elemento <a> para contener a cada opción del menú:  ALL y IMAGES 
+
+Fase 3 Elaborar el Header - CSS
+Fase 4 Elaborar el Main - HTML 
+Fase 5 Elaborar el Main - CSS
+Fase 6 Elaborar el Footer - HTML
+Fase 7 Elaborar el Footer - CSS
