@@ -3,7 +3,8 @@ Nota: vamos a hacer el diseño para móviles y para desktop
 
 1) DISEÑO PARA MÓVILES (abrir google en el móvil)
 
-Fase 1 Posicionamiento de los Contenedores
+Fase 1 Posicionamiento de los Contenedores:
+
 1° Crear un archivo css para el diseño móvil y relacionarlo al documento html a través de <link>
 2° Establecer las propiedades globales de CSS en el archivo creado.
 *{
@@ -16,10 +17,11 @@ html{
     font-size: 62.5%
 }
 
-3° Ubicar el contenedor <div>  como elemento padre de los contenedores header, main y footer
-    <div>
+3° Ubicar el contenedor <div>  como elemento padre de los contenedores header, main y footer y agregarle una clase
+    <div class="main-container">
 
     </div>
+
 4° Ubicar el contenedor <header> en el código, con el texto Header por dentro
     <header>
         Header
@@ -49,7 +51,7 @@ footer{
 }
 8° En archivo CSS, aplicar la propiedad display: flex al elemento padre <div>
 
-div{
+.main-container{
     display: flex;
 }
 
@@ -120,7 +122,7 @@ footer{
     a. Empezamos por el archivo index.html
          $ git add index.html
     b. Ahora el presente archivo
-    c. Ahora el la carpeta CSS
+    c. Ahora la carpeta CSS
          $ git add CSS/
     d. Ahora la carpeta iconos
         $ git add Iconos/
@@ -136,15 +138,565 @@ footer{
 
 
 
-Fase 2 Elaborar el Header - HTML 
-- Descargar los íconos para el HEADER y ubicarlos dentro de la carpeta "Íconos". En este caso los elaboré en figma y los exporté como png 
-- Ubicar el elemento <img> para ubicar el ícono de menú, este elemento debe ir dentro del contenedor <picture>
-- Ubicar el contenedor <nav> dentro de <header>
-- Ubicar el contenedor <ul> dentro de <nav> para crear una lista donde estarán las opciones "gmail" y "images"
-- Dentro de <ul> ubicar los elementos <li>, y dentro de cada <li> irá un elemento <a> para contener a cada opción del menú:  ALL y IMAGES 
+Fase 2 Elaborar el Header 
 
-Fase 3 Elaborar el Header - CSS
-Fase 4 Elaborar el Main - HTML 
-Fase 5 Elaborar el Main - CSS
+  Nota: Quitar el color de fondo del contenedor para poder trabajar en el mismo (archivo CSS)
+  1° Descargar los íconos para el HEADER y ubicarlos dentro de la carpeta "Íconos". En este caso los elaboré en figma y los exporté como SVG, salvo por el de user que lo descargué de internet.
+  2° Identificar y ubicar todos los hijos del elemento <header> (agregarle un contenido de texto en su interior para identificarlos)
+        <header>
+            <picture>
+                icono 1
+            </picture>
+
+            <nav>
+                opciones
+            </nav>
+
+            <picture>
+                icono 2
+            </picture>
+
+            <picture>
+                foto user
+            </picture>
+        </header>
+     
+  3° Agregarles una clase general + clase única + un ID distintivo (este último solo cuando se considere necesario)
+        <header>
+            <picture class="header-child icon-one">
+                Icono 1
+            </picture>
+
+            <nav class="header-child list-menu" >
+                opciones
+            </nav>
+
+            <picture class="header-child icon-two">
+                icono 2
+            </picture>
+
+            <picture class="header-child user-photo">
+                foto user
+            </picture>
+        </header>
+
+  4° En el archivo CSS, agregar a cada elemento hijo un color de fondo para distinguirlos.
+     Propiedad: background-color
+     Resultado:
+.icon-one{
+    background-color: #A3E4D7;
+}
+.list-menu{
+    background-color: #48C9B0;
+}
+.icon-two{
+    background-color: #138D75;
+}
+.user-photo{
+    background-color: #2ECC71;
+}
+
+
+  5° Alinear los items en forma horizontal, aplicando display flex al padre <header>
+     Propiedad: display:flex
+     Nota: en el archivo css, movemos el selector del elmento HEADER de la FASE 1 a  la FASE 2:
+header{
+    flex-grow: 1;
+    width: 100%;
+    height: 15vh;
+    display: flex;
+}
+   
+ 6° Distribuir uniformemente los hijos en el eje principal (horizontal)
+    Propiedad: flex-grow 
+    Resultados: Fallido
+    
+    Intentamos con:
+    Propiedad: width (%)
+    Resultado:
+
+    .icon-one{
+    background-color: #A3E4D7;
+    width: 10%;
+}
+.list-menu{
+    background-color: #48C9B0;
+    width: 70%;
+}
+.icon-two{
+    background-color: #138D75;
+    flex-grow: 1;
+    width: 10%;
+}
+.user-photo{
+    background-color: #2ECC71;
+    flex-grow: 1;
+    width: 10%;
+}
+
+--> NOS QUEDAMOS AQUÍ 12/09/2022
+
+ 7° Identificar a su vez los hijos del primer hijo del HEADER
+     Elemento: <img>
+     Resultado: 
+
+            <picture class="header-child icon-two">
+                <div>
+                    <img src="./Iconos/Iconos del Header/Icono_puntos.svg" alt="herramientas google">
+                </div>
+            </picture>
+
+ 8° Identificar a su vez los hijos, nietos, bisnietos del segundo hijo del HEADER
+     Elemento hijo: <ul>
+     Elemento nieto: <li> (dentro de cada li irá el elmento <a> para crear un link a otra página al hacer clic en c/opción del menú
+     Resultado: 
+            <nav class="header-child list-menu" >
+                <ul>
+                    <li>
+                        <a href=".">
+                            ALL
+                        </a>
+                    </li>
+                    <li>
+                        <a href=".">
+                            IMAGES
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+ 9° Identificar a su vez los hijos del tercer hijo del HEADER
+     Elemento: <img>
+     Resultado: 
+            <picture class="header-child icon-two">
+                <img src="./Iconos/Iconos del Header/Icono_puntos.png" alt="herramientas google">
+            </picture>
+
+10° Identificar a su vez los hijos del cuarto y último hijo del HEADER
+     Elemento: <img>
+     Resultado: 
+            <picture class="header-child user-photo">
+                <img src="./Iconos/Iconos del Header/user.png" alt="foto de usuario">
+            </picture>
+
+11° Disminuir el tamaño de la foto del USUARIO (estilo CSS)
+   Propiedad: width y height 
+   Resultado:
+.user-photo img{
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+12° Disminuir la dimensión de altura del HEADER
+    Propiedad: height
+    Resultado: 
+
+header{
+    flex-grow: 1;
+    width: 100%;
+    height: 5vh;
+    display: flex;
+}
+
+Nota: como la unidad de medida es "vh" si le disminuimos al HEADER le aumentamos en este caso al MAIN los 10vh disminuidos aquí
+
+ 13° Quitarle el padding lateral izquierdo al elemento <ul> 
+     Propiedad: padding-left
+     Resultado:
+ 
+.list-menu ul{
+    padding-left: 0;
+}
+
+ 14° Quitarle las viñetas al elemento <ul>   
+     Propiedad: list-style
+     Resultado: 
+.list-menu ul{
+    padding-left: 0;
+    list-style: none;
+}
+
+ 15° Quitarle el subrayado a los elementos de el menú (en este caso aplicar al elmento <a> porque este es el origen del subrayado)
+     Propiedad: text-decoration
+     Resultado: 
+
+.list-menu ul li a{
+    text-decoration: none;
+}
+
+ 16° Quitar el color de fondo de los hijos de HEADER
+
+ 17° Cambiar el color de la palabra "ALL" por azul de google
+     Propiedad: color
+     Resultado: 
+.list-menu ul li:nth-child(1) a{
+    color: #4285F4;
+}
+
+ 18° Cambiar el color de la palabra "IMAGES" por gris
+     Propiedad: color
+     Resultado: 
+
+.list-menu ul li:nth-child(2) a{
+    color: #5F6368;
+}
+
+ 19° Cambiar el grosor del texto para "ALL" e "IMAGES"
+     Propiedad: font-weight
+     Resultado: 
+
+.list-menu ul li a{
+    text-decoration: none;
+    font-weight: 600;
+}
+
+ 20° Alinear los elmentos (<li>) del menú de navegación en el eje horizontal (no funciona si se aplica flexbox)
+     Propiedad:  display: inline-block
+     Resultado: 
+
+.list-menu ul li{
+    display: inline-block;
+}
+
+ 
+ 21° Alinear hijos del header en el medio del eje vertical
+     Propiedad: align-items
+     Resultado: 
+header{
+    flex-grow: 1;
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+
+ 22° Quitar el width de cada hijo del HEADER
+     Resultado: 
+.icon-one{
+}
+.list-menu{
+}
+.icon-two{
+}
+.user-photo{
+}
+
+ 23° Quitar el "height" del elemento padre HEADER
+     Resultado:
+header{
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+ 24° Agregar un padding al primer ícono
+     Propiedad: padding
+     Resultado:
+
+ .icon-one{
+    padding: 1rem 1.5rem;
+}
+
+ 25° Agregar un padding a los elementos el menú "ALL" e "IMAGES" para separarlos entre si  y para que la línea azúl que aparecerá abajo de ellos pueda sobresalir un poco del texto y pueda ubicarse a ese distancia abajo del texto (si en lugar de padding usara margin, no funcionaría porque los margenes no forman parte del elmento. Margin funciona si solo quisiera separar los elmentos)
+     Propiedad: padding
+     Resultado: 
+.list-menu ul li{
+    display: inline-block;
+    padding: 1.1rem 0.5rem;
+}
+
+ 26° Agregar un margin lateral al elemento "IMAGES" del menú
+      Propiedad: margin-left
+      Resultado:
+.list-menu ul li:nth-child(2){
+    margin-left: 0.2rem;
+}
+
+ 27° Agregar la línea azul debajo de "ALL"
+     Propiedad: Border-bottom
+     Resultado:
+
+.list-menu ul li:nth-child(1){
+    border-bottom: 0.2rem solid #4285F4 ;
+}
+
+  28° Expandir el tamaño del contenedor del ícono 2 para empujar la foto del usuario al fondo del contenedor
+      Propiedad: flex-grow
+      Resultado: 
+.icon-two{
+    flex-grow: 1;
+}
+
+      
+  29° Agregar un margen lateral derecho a la foto del usuario
+      Propiedad: margin
+      Resultado: 
+.user-photo{
+    margin: 0 0.6rem;
+}
+
+  30° Agregar un margen lateral derecho al icono de los 9 puntitos
+      Propiedad: margin-right
+      Resultado: 
+.icon-two{
+    flex-grow: 1;
+    margin-right: 1rem;
+}
+  
+  31° En el documento HMTL, agregar un hijo <div> al 3er hijo de HEADER <picture class="header-child icon-two". El elemento <img> pasará a ser ahora hijo de <div>
+      Objetivo: Poder realizar un hoover al ícono de los 9 puntitos según se ve en el modelo, es decir un circulo color gris al rededor del ícono y esto no iba a ser posible si se aplicaba :hoover al contenedor <picture> o al mismo elemento <img>
+      
+      Resultado: 
+            <picture class="header-child icon-two">
+                <div>
+                    <img src="./Iconos/Iconos del Header/Icono_puntos.svg" alt="herramientas google">
+                </div>
+            </picture>
+
+  32° Establecer un display flex al 3er hijo de HEADER con el objetivo de poder enviar al fondo su nuevo hijo DIV
+      Objetivo: Enviar al fondo a su hijo div (ya que a este no se le podía aplicar un text-align)
+      Propiedad: display: flex
+      Resultado: 
+.icon-two{
+    flex-grow: 1;
+    margin-right: 1rem;
+    display: flex ;
+}
+
+  33° El 3er hijo que ahora es un contenedor de display flex, solo tiene un hijo (div) el cual enviaremos al final del mismo
+      Propiedad: justify-content
+      Resultado: 
+.icon-two{
+    flex-grow: 1;
+    margin-right: 1rem;
+    display: flex ;
+    justify-content: flex-end;
+}
+
+--> NOS QUEDAMOS AQUÍ 13/09/2022
+   
+  34° Ahora necesitamos que el contenedor <div> (hijo del tercer hijo de HEADER) crezca un poco más para poder aplicarle el :hoover
+      Propiedad: padding 
+      Resultado: 
+
+.icon-two div{
+    padding: 0.6rem;
+}
+
+  35° Convertir en círculo el contenedor <div> del icono de los 9 puntitos
+      Objetivo: Realizar el :hover y que este sea redondo, de acuerdo al modelo
+      Propiedad: border-radius
+      Resultado: 
+
+.icon-two div{
+    padding: 0.6rem;
+    border-radius: 50%;
+}
+  
+  36° Aplicar la pseudo clase :hover al contenedor <div>, padre del ícono de los 9 puntitos
+      Objetivo: Que al acercar el cursos sobre ese ícono, un círculo color gris aparezca.
+      Propiedad: background-color aplicada al selector de la pseudoclase
+      Resultado:
+
+.icon-two div:hover{
+    background-color: #F0F0F0;
+}
+
+  37° Nos hemos dado que el círculo que ahora es el contenedor <div> no es redondo totalmente. Esto se debe a sus dimensiones actuales (width: 26px  / height: 29.2 px)
+      Para obtener un círculo perfecto tenemos que emparejar el width y que sea el mismo que el height
+      Objetivo: Obtener un círculo perfecto al realizar el hover sobre el ícono de los 9 puntitos
+      Propiedad: width
+      Resultado: 
+
+.icon-two div{
+    padding: 0.6rem;
+    border-radius: 50%;
+    width: 2.92rem;
+}
+
+     Nota: recordar que como propiedad global se estableció un box-sizing: border-box
+
+   38° Me he dado cuenta que el paso 34° de aplicar padding al <div> no era necesario, así que lo retiramos y en su lugar establecemos sus medidas (height y width a 29.2 px)
+      Resultado: 
+
+.icon-two div{
+    border-radius: 50%;
+    width: 2.92rem;
+    height: 2.92rem;
+}
+
+   39° Vamos a disminuir el tamaño de los 9 puntitos (aplicado directamente al elemento <img>)
+       Propiedad: width y height
+       Resultado: 
+
+.icon-two div img{
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+    
+   40° Centrar vertical y horizontalmente el ícono de los 9 puntitos dentro de su padre <div> 
+       Objetivo: Centrar en ambos ejes
+       Propiedades: display: flex  /  justify-content: center  / aligh - items: center
+       Resultado: 
+
+.icon-two div{
+    border-radius: 50%;
+    width: 2.92rem;
+    height: 2.92rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+  41° Agrandar un poco el contenedor <div>
+      Propiedades: width y height
+      Resultado:
+
+.icon-two div{
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+  42° Tenemos que realizar lo mismo con la foto del usuario. 
+     En el documento HMTL, agregar un hijo <div> al 4to hijo de HEADER <picture class="header-child user-photo". El elemento <img> pasará a ser ahora hijo de <div>
+     Objetivo: Poder realizar un hoover a la foto del usuario según se ve en el modelo, es decir un circulo color gris al rededor del ícono y esto no iba a ser posible si se aplicaba :hoover al contenedor <picture> o al mismo elemento <img>
+      
+      Resultado: 
+            <picture class="header-child user-photo">
+                <div>
+                    <img src="./Iconos/Iconos del Header/user.png" alt="foto de usuario">
+                </div>
+            </picture>
+
+  43° Aumentar el tamaño del contenedor <div> al mismo tamaño del hijo <div> del tercer hijo de HEADER
+      Objetivo: Igualar al tamaño del contenedor <div> del icono de 9 puntitos
+      Propiedad: width y height
+      Resultado: 
+   
+.user-photo div{
+    width: 3rem;
+    height: 3rem;
+}
+
+  44° Redondear el contenedor <div> de la foto del usuario
+      Objetivo: Realizar el :hover y que este sea redondo, de acuerdo al modelo
+      Propiedad: border-radius
+      Resultado:
+
+.user-photo div{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+  45° Aplicar la pseudo clase :hover al contenedor <div>, padre del la foto del usuario
+      Objetivo: Que al acercar el cursos sobre la foto, un círculo color gris aparezca.
+      Propiedad: background-color aplicada al selector de la pseudoclase
+      Resultado:
+
+.icon-two div:hover{
+    background-color: #F0F0F0;
+}
+
+  
+   46° Centrar vertical y horizontalmente la foto del usuario dentro de su padre <div> 
+       Objetivo: Centrar en ambos ejes
+       Propiedades: display: flex  /  justify-content: center  / aligh - items: center
+       Resultado:       
+ 
+.user-photo div{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+   47° Me he dado cuenta que el código utilizado en los hijos <div> del 3° y 4° hijo del <header> es el mismo, por lo que podemos unirlos en uno solo de la siguienta forma: 
+       ANTES:
+
+.icon-two div{
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-photo div{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+   
+       DESPUÉS:
+
+.icon-two div, .user-photo div{
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+   48° Me he dado cuenta que el código utilizado para el :hover en los hijos <div> del 3° y 4° hijo del <header> es el mismo, por lo que podemos unirlos en uno solo de la siguienta forma:
+       ANTES:
+
+.icon-two div:hover{
+    background-color: #F0F0F0;
+}
+.user-photo div:hover{
+    background-color: #F0F0F0; 
+}
+
+       DESPUÉS: 
+
+   49° Quitar el margen del tercer hijo del HEADER
+       Objetivo: Acercar más el ícno de 9 puntitos a la foto del usuario
+       Resultado: 
+
+.icon-two{
+    flex-grow: 1;
+    display: flex ;
+    justify-content: flex-end;
+}
+
+   50° Agregar el atributo  TITLE a los elementos div, hijos del 3° y 4° hijos del HEADER
+       Objetivo: que al realizar un hover sobre ambos elementos aparezca la información requerida
+       Resultado: 
+
+            <picture class="header-child icon-two">
+             -> <div title="Google apps">
+                    <img src="./Iconos/Iconos del Header/Icono_puntos.svg" alt="herramientas google">
+                </div>
+            </picture>
+
+            <picture class="header-child user-photo">
+                <div 
+             -> title="Google Account
+ Nombre de usuario 
+ abc@gmail.com">
+                    <img src="./Iconos/Iconos del Header/user.png" alt="foto de usuario">
+                </div>
+            </picture>
+        </header>
+
+
+Fase 3 Elaborar el Main 
+
 Fase 6 Elaborar el Footer - HTML
 Fase 7 Elaborar el Footer - CSS
