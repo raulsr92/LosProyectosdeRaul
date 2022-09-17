@@ -227,3 +227,50 @@ main{
 
 /* Fase 4 Elaborar el Footer*/
 
+footer{
+    background-color: #F2F2F2;
+    color: #82858D;
+}
+
+.footer-child a{
+    text-decoration: none;
+    color:#82858D;
+}
+
+.footer-child ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    column-gap: 3rem;
+}
+
+.first-text{
+    font-size: 1.4rem;
+    font-weight: 600;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 0.1rem solid #DBDDE1;
+}
+
+.first-list a, .second-list a{
+    font-size: 1.1rem;
+}
+
+.first-text p{
+    vertical-align: middle;
+}
+
+.empty-text{
+    height: 4rem;
+    border-bottom: 0.1rem solid #DBDDE1;
+}
+
+.first-list, .second-list{
+    margin-top: 2rem;
+}
+
+.first-text{
+    padding-left: 1rem;
+}

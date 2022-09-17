@@ -130,7 +130,7 @@ footer{
     $ git commit -m "Commit de la Fase 1 - posicionamiento de los contenedores"
    g
     Nota: Con un solo commit se envia todo lo del STAGING AREA
-gi
+
 15° Realizar buena práctica: GIT PULL antes de enviar los cambios al repositorio remoto 
     $ git pull origin master
 16° Enviar los cambios al repositorio remoto (Git Hub)
@@ -1570,10 +1570,244 @@ ______
 } 
 
 
-
-40° Realizar el commit al servidor local y luego enviar los archivos al servidor remoto.
+   40° Realizar el commit al servidor local y luego enviar los archivos al servidor remoto.
         
+Fase 4 Elaborar el Footer
+
+ 
+  1° Establecer el color de fondo de acuerdo al modelo. El color exacto lo obtenemos de Figma
+     Propiedad: - background-color
+     Resultado: 
+
+footer{
+    background-color: #F2F2F2;
+}
 
 
-Fase 6 Elaborar el Footer - HTML
-Fase 7 Elaborar el Footer - CSS
+  2° Identificar y ubicar todos los hijos del elemento <footer> (agregarle un contenido de texto en su interior para identificarlos)
+     Resultado: 
+
+        <footer>
+            <div>
+                Peru
+            </div>
+            <div>
+
+            </div>
+            <div>
+                <ul>
+                    <li> <a href="."> Dark theme:off</a></li>
+                    <li> <a href="."> Settings</a></li>
+                    <li> <a href="."> Privacy</a></li>
+                    <li> <a href="."> Terms</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li> <a href="."> Advertising</a></li>
+                    <li> <a href="."> Business</a></li>
+                    <li> <a href="."> About</a></li>
+                </ul>
+            </div>
+        </footer>
+     
+  3° Agregarles una clase general + clase única + un ID distintivo (este último solo cuando se considere necesario)
+     Resultado: 
+
+        <footer >
+            <div class="footer-child first-text">
+                Peru
+            </div>
+
+            <div class="footer-child empty-text">
+
+            </div>
+
+            <div class="footer-child first-list">
+                <ul>
+                    <li> <a href="."> Dark theme:off</a></li>
+                    <li> <a href="."> Settings</a></li>
+                    <li> <a href="."> Privacy</a></li>
+                    <li> <a href="."> Terms</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-child second-list">
+                <ul>
+                    <li> <a href="."> Advertising</a></li>
+                    <li> <a href="."> Business</a></li>
+                    <li> <a href="."> About</a></li>
+                </ul>
+            </div>
+            
+        </footer>
+
+
+  4° Quitarle el subrayado al texto que está dentro de elementos <a>
+     Propiead: -text-decoration
+     Resultado: 
+
+.footer-child a{
+ -> text-decoration: none;
+}
+
+
+  5° Quitarle las viñetas a los elementos <li> del hijo 3° y 4° del FOOTER
+     Propiedad: - list-style
+                
+     Resultado:
+
+.footer-child ul{
+    list-style: none;
+}
+
+  6° Quitarle el padding izquiero a los <ul> del hijo 3° y 4° del FOOTER
+     Propiedad: - padding
+                
+     Resultado:
+
+.footer-child ul{
+    list-style: none;
+ -> padding: 0;
+}
+
+
+  7° Cambiar el color de el texto de todo el footer
+     Propiedad: -color
+     Resultado: 
+
+footer{
+    background-color: #F2F2F2;
+ -> color: #82858D;
+}
+
+.footer-child a{
+    text-decoration: none;
+ -> color:#82858D;
+}
+
+  8° Alinear horizontalmente los elementos del tercer y cuarto contenedor
+      
+.footer-child ul{
+    list-style: none;
+    padding: 0;
+ -> display: flex;
+}
+
+ 9° Alineat los elementos <li> en el medio del contenedor
+    Propiedad: - justify-content
+    Resultado: 
+
+.footer-child ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+ -> justify-content: center;
+}
+
+ 10° Aumentar el tamaño de letra de "Peru" y darle un mayor grosor
+     Propiedad: - font-size
+                - font-weigh
+     Resultado: 
+
+.first-text{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+
+  11° Aumentar el tamaño de letra del texto adicional del 3° y 4° hijo del footer
+      Resultado: 
+
+.first-list a, .second-list a{
+  -> font-size: 1.1rem;
+}
+
+  12° Agregar un espaciado en el texto del 3° y 4° hijo del footer
+      Propiedad: -column-gap
+      Resultado: 
+
+.footer-child ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+ -> column-gap: 3rem;
+}
+
+  13° Agregar un elemento <p> en el 1° hijo del Footer
+     Resultado :
+
+            <div class="footer-child first-text">
+           ->   <p>
+                    Peru
+                </p>
+            </div>
+
+  
+  14° Aumentar la altura del 1° hijo del FOOTER
+      Resultado: 
+
+.first-text{
+    font-size: 1.4rem;
+    font-weight: 600;
+ -> height: 3rem;
+}
+
+  15° Alinear verticalmente en el centro a la palabra PERU
+      Resultado:
+
+.first-text{
+    font-size: 1.4rem;
+    font-weight: 600;
+    height: 3rem;
+  ->display: flex;
+  ->align-items: center;
+}
+
+
+  
+  16° Aumentar la altura del 2° hijo del FOOTER
+      Resultado: 
+
+.empty-text{
+    height: 4rem;
+}
+
+  17° Agregar un borde inferior en el hijo 1° y 2° del FOOTET
+      Propiedad: border-bottom
+      Resultado: 
+
+.first-text{
+    font-size: 1.4rem;
+    font-weight: 600;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+  ->border-bottom: 0.1rem solid #DBDDE1;
+}
+
+.empty-text{
+    height: 4rem;
+  ->border-bottom: 0.1rem solid #DBDDE1;
+}
+
+
+   18° Agregar los espaciados faltantes:
+       Resultado: 
+
+.first-list, .second-list{
+ -> margin-top: 2rem;
+}
+
+
+  19° Agregar un margen izquiero a la palabra "Peru"
+      Resutlado:
+
+.first-text{
+    padding-left: 1rem;
+}
+   
+ Nota: en este caso utilizo padding en lugar de margin para que la el borde ingerior abarque todo el ancho de la pantalla
+
+  20° Realizar el commit al servidor local y luego enviar los archivos al servidor remoto.
