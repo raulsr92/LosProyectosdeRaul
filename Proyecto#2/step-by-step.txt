@@ -128,9 +128,9 @@ footer{
         $ git add Iconos/
 14° En la GIT bash, realizar COMMIT para la FASE 1°
     $ git commit -m "Commit de la Fase 1 - posicionamiento de los contenedores"
-   
+   g
     Nota: Con un solo commit se envia todo lo del STAGING AREA
-
+gi
 15° Realizar buena práctica: GIT PULL antes de enviar los cambios al repositorio remoto 
     $ git pull origin master
 16° Enviar los cambios al repositorio remoto (Git Hub)
@@ -695,8 +695,885 @@ header{
             </picture>
         </header>
 
+  51° Realizar el commit al servidor local y luego enviar los archivos al servidor remoto.
+
 
 Fase 3 Elaborar el Main 
+
+Nota: Quitar el color de fondo del contenedor para poder trabajar en el mismo (archivo CSS)
+  1° Descargar los íconos y logos para el MAIN y ubicarlos dentro de la carpeta "Íconos" y "Logos" respectivamente. 
+  2° Identificar y ubicar los hijos del elemento <main>
+     Resultado: 
+        <main>
+            <picture>
+                Logo Google
+            </picture>
+            <div>
+                Buscador
+            </div>
+            <div>
+                Texto 1
+            </div>
+            <div>
+                Texto 2
+            </div>
+        </main>
+  
+  3° Agregarles una clase general + clase única + un ID distintivo (este último solo cuando se considere necesario)
+     Resultado: 
+        <main>
+            <picture class="main-child main-logo">
+                Logo Google
+            </picture>
+
+            <div class="main-child search-control">
+                Buscador
+            </div>
+
+            <div class="main-child text-1">
+                Texto 1
+            </div>
+
+            <div class="main-child blue-text">
+                Texto 2
+            </div>
+        </main>
+  4° En el archivo CSS, agregar a cada elemento hijo un color de fondo.
+     Objetivo: Distinguir el espacio que ocupan en la pantalla
+     Propiedad: background-color
+     Resultado:
+
+.main-logo{
+    background-color: #4285F4;
+}
+
+.search-control{
+    background-color: antiquewhite;
+}
+
+.text-1{
+    background-color: #F0F0F0;
+}
+
+.blue-text{
+    background-color: #5F6368;
+}
+  5° Establecer un display que permita alinear mas adelante a cada hijo en el centro
+     Objetivo: Alineamiento central en el eje horizontal
+     Propiedad:  -display:flex 
+                 -flex-direction: column (para cambiar el eje principal)
+     Resultado: 
+
+main{
+    flex-grow: 1;
+    width: 100%;
+    height: 70vh;
+  ->display: flex;
+  ->flex-direction: column;
+}
+  Nota: Hemos movido el selector del MAIN a la fase 3
+
+   6° Distribuir la altura de los hijos del main de acuerdo al modelo.
+      Objetivo: Delimitar un espacio para cada hijo (este dimensión puede varias mas adelante)
+      Propiedad: - height
+      Resultado:  
+          
+.main-logo{
+    background-color: #4285F4;
+  ->height: 25vh;
+}
+
+.search-control{
+    background-color: antiquewhite;
+  ->height: 10vh;
+}
+
+.text-1{
+    background-color: #F0F0F0;
+  ->height: 10vh;
+}
+
+.blue-text{
+    background-color: #5F6368;
+  ->height: 55vh;
+}
+     
+   7° Identificar los hijos del hijo 1° del MAIN
+      Elemento: <img>
+      Resultado: 
+
+            <picture class="main-child main-logo">
+              -> <img src="./Logos/LogoGoogle-small.png" alt="logo-de.Google">
+            </picture>
+
+   8° Agregar la imagen large para desktop
+      Objetivo: No perder resolución de la imagen en pantallas más grandes
+      Elemento: <source>
+      Resultado: 
+
+            <picture class="main-child main-logo">
+             -> <source media="(min-width: 800px)" srcset="./Logos/LogoGoogle-large.png">
+                <img src="./Logos/LogoGoogle-small.png" alt="logo-de.Google">
+            </picture>
+
+   9°Identificar a los hijos, nietos , etc del hijo 2° del MAIN
+     Resultado: 
+
+            <div class="main-child search-control">
+                <input type="search" name="búsqueda">
+                <picture>
+                    <img src="./Iconos/Iconos del Main/lupa.png" alt="Lupa" class="main-icon searching-icon">
+                </picture>
+                <picture>
+                    <img src="./Iconos/Iconos del Main/micro.png" alt="búsquedaporvoz" class="main-icon talking-icon">
+                </picture>
+            </div>
+
+  10° Identificar los hijos del hijo 3° del MAIN
+      Elemento: <p>
+      Resultado: 
+            <div class="main-child text-1">
+                <p> Google Offered in:</p>
+            </div>
+
+
+   11°Identificar a los hijos, nietos , etc del hijo 4° del MAIN
+     Resultado: 
+
+            <div class="main-child blue-text">
+                <p> <a href="./"> Español (Latinoamérica) </a></p>
+                <p> <a href="./"> Quechua </a></p>
+            </div>
+
+   12° Disminuir el tamaño de la lupa y el micrófono
+       Propiedad: -height
+                - width
+       Resultado: 
+
+.main-icon{
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+   13° Quitar el fondo del hijo 1° del MAIN
+       Resultado:
+
+.main-logo{
+    height: 25vh;
+}
+
+   14° Disminuir el tamaño del logo de google
+       Resultado: 
+
+.main-logo img{
+    width: 12.5rem;
+    height: 3.8rem;  
+}
+
+   15° Centrar el logo de google horizontalmente
+       Propiedad: - display: flex
+                  - justify-content: center
+
+       Resultado: 
+.main-logo{
+    height: 25vh;
+  ->display: flex;
+  ->justify-content: center;
+}
+
+   16° Quitar la altura del hijo 1° del MAIN
+       Resultado: 
+
+.main-logo{
+    display: flex;
+    justify-content: center;
+}
+
+   17° Agregar un margen superior e inferior al logo de Google. Tener en cuentra que el margen superior debe ser mayor que el menor
+       Propiedad: - margin-top
+                  - margin-bottom
+       Resultado: 
+
+.main-logo img{
+    width: 12.5rem;
+    height: 3.8rem;  
+  ->margin-top: 5.5rem;
+  ->margin-bottom: 2.5rem;
+}
+
+   18° Quitar el fondo del hijo 2° del MAIN
+       Resultado:
+
+.search-control{
+    height: 10vh;
+}
+
+  19° Marcar el borde de la barra de búsqueda
+      Propiedad: -border
+      Resultado: 
+
+.search-control input{
+    border: 0.1rem solid #DFE1E5;
+}
+
+  20° Redondear los bordes de la barra de búsqueda
+      Propiedad: -border-radius
+      Resultado: 
+
+.search-control input{
+    border: 0.1rem solid #DFE1E5;
+  ->border-radius: 1rem;
+}
+
+--> NOS QUEDAMOS AQUÍ 14/09/2022
+
+   21° Agrandar la barra de búsqueda (según modelo mobile cubre casi todo el ancho de viewport)
+       Propiedad: -width
+       Resultado: 
+
+.search-control input{
+    border: 0.1rem solid #DFE1E5;
+    border-radius: 1rem;
+  ->width: 35rem;
+}
+
+   22° Quitarle la altura al contenedor de la barra de búsqueda y centrar la barra horizontalmente
+       Propiedad:  - display:flex
+                   - justify-content
+       Resultado: 
+
+.search-control{
+    display: flex;
+    justify-content: center;    
+}
+
+   23° Aumentar el ancho de la barra de búsqueda
+       Propiedad: -height
+       Resultado: 
+
+.search-control input{
+    border: 0.1rem solid #DFE1E5;
+    border-radius: 1rem;
+    width: 35rem;
+  ->height: 3.3rem;
+}
+
+   24° Debido al incremento del ancho de la barra, tenemos que ajustar el redondeo de los bordes
+       Resultado: 
+
+.search-control input{
+    border: 0.1rem solid #DFE1E5;
+  ->border-radius: 2rem;
+    width: 35rem;
+    height: 3.3rem;
+}
+
+   
+
+   25° Disminuir el tamaño de la lupa y el micrófono, para ello tenemos que modificar el tamaño de su contenedor primero y luego asignarle 100% como medidas a los íconos
+       Nota: Estamos manejando el tamaño de los elementos <img> a través de su contenedor natural <picture>
+       Resultado: 
+        AJUSTE EN LOS CONTENEDORES: 
+
+.search-control picture:nth-child(2){
+  ->width: 1.5rem;
+  ->height: 1.5rem;
+}
+
+.search-control picture:nth-child(3){
+  ->width: 2rem;
+  ->height: 2rem;
+}
+
+        AJUSTE EN AMBOS ÍCONOS (:
+
+.main-icon{
+    width: 100%;
+    height: 100%;
+}
+
+   26° Ubicar la lupa y el micro encima de la barra de búsqueda (segun el modelo)
+       Propiedad: - position: absolute (al elemento) - en este caso al <picture> de ambos íconos
+                  - position: relative (al padre)
+
+       Resultado: 
+
+.search-control picture{
+ -> position: absolute;
+}
+
+.search-control{
+    display: flex;
+    justify-content: center;   
+ -> position: relative; 
+}
+
+    27° Ubicar la lupa en su posición final dentro de la barra de búsqueda: A LA IZQUIERDA
+        Propiedad:
+                   - left
+                   - top
+
+        Resultado: 
+
+.search-control picture:nth-child(2){
+    width: 1.5rem;
+    height: 1.5rem;
+  ->left: 1.5rem;
+  ->top: 0.9rem;
+}
+
+
+
+    28° Ubicar el micrófono en su posición final dentro de la barra de búsqueda: A LA DERECHA
+        Propiedad:
+                   - right
+                   - top
+
+        Resultado: 
+
+.search-control picture:nth-child(3){
+    width: 2rem;
+    height: 2rem;
+  ->right: 1.5rem;
+  ->top: 0.7rem;
+}
+
+   29° Disminuir la opacidad de la lupa
+       Propiedad: - opacity
+
+       Resultado: 
+
+.searching-icon{
+    opacity: 0.60;
+}
+
+
+   30° Quitarle la altura a los 2 últimos contenedores hijos del MAIN
+       Resultado: 
+
+.text-1{
+    background-color: #F0F0F0;
+}
+
+.blue-text{
+    background-color: #5F6368;
+}
+
+    31° Añadir una separación entra la barra de búsqueda y el texto inferior (Google offered in:)
+        Propiedad: -margin-bottom
+
+        Resultado: 
+
+.search-control{
+    display: flex;
+    justify-content: center;   
+    position: relative; 
+  ->margin-bottom: 2.6rem;
+}
+
+     32° Centrar el texto "Google offered in:" y el texto en azul horizontalmente, para ello utilizaremos flexbox
+         Propiedad:  - display:flex
+                     - justify-content
+
+         Resultado: 
+
+.main-child{
+    display: flex;
+    justify-content: center;
+}
+
+ Nota: con este selector estamos aplicando esa propiedad a los 4 hijos del <main>, pero como todos requirieron al final esas propiedades no hay problema, incluso podríamos borrar las propiedades descritas de los selectores "main-logo" y "search-control" para no redundar
+
+
+      33° Quitar el color de fondo de ambos textos
+
+      34° Aplicar fuente "Quicksand" a todo el documento. Para ello debeos buscar la fuente en Google Fonts.
+          Resultado: 
+
+           HTML:
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ -> <link rel="preconnect" href="https://fonts.googleapis.com">
+ -> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ -> <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/styleMobile.css"> <!-- Css para moviles-->
+    <title>Document</title>
+</head>
+
+          CSS:
+
+html{
+    font-size: 62.5%;
+ -> font-family: 'Quicksand', sans-serif;
+}
+     
+     35° Cambiar el color, tamaño y gorsor del texto "Google offered in:"
+         Propiedades:  -color
+                       -font-size
+                       -font-weight
+         Resultado: 
+.text-1 p{
+    color: #4D5156;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+     36° Aplicar un margen inferior al hijo 3° del MAIN (contenedor del texto "Google offered in:")
+         Propiedad: -margin-bottom
+         Resultado:
+ 
+.text-1{
+    margin-bottom: 1rem;
+}
+
+
+     37° Quitar el subrayado al texto del hijo 4° del MAIN
+         Propiedad: -text-decoration
+
+         Resultado: 
+
+.blue-text p a{
+    text-decoration: none;
+}
+
+
+
+     38° Cambiar el color, tamaño y gorsor del texto "Google offered in:"
+         Propiedades:  -color
+                       -font-size
+                       -font-weight
+         Resultado: 
+
+.blue-text p a{
+    text-decoration: none;
+  ->color: #4285F4;
+  ->font-size: 1.1rem;
+  ->font-weight: 600;
+}
+
+ Problemas detectados: 
+  1) Los elementos lupa y micrófono, al agrandar la pantalla, pierden la posición establecida
+  2) El logo de Google, al llegar a un ancho de pantalla de 800 px pierde calidad
+
+PROBLEMA 1: A continuación vamos a aplicar mejoras en la barra de búsqueda para evitar que los elementos "Lupa" y "micrófono" de muevan al aumentar el tamaño de la pantalla:
+     
+     1° Quitar las propiedades position absolute y relative del hijo 2° del MAIN
+        Resultado: 
+.search-control picture{
+    
+}
+
+.search-control{
+    display: flex;
+    justify-content: center;   
+    margin-bottom: 2.6rem;
+}
+
+
+     2° Quitar las propiedades de ambos contenedores <picture> (contenedores de la lupa y el micro)
+        Resultado: 
+
+.search-control picture:nth-child(2){
+
+}
+
+.search-control picture:nth-child(3){
+
+}
+
+     3° Quitar las propiedades a ambos íconos (lupa y micrófono)
+        Resultado: 
+
+.main-icon{
+
+}
+
+     4° Quitar las propiedades del elmento <input>, solo dejamos la propiedad "border"
+        Resultado: 
+
+.search-control input{
+    border: 0.1rem solid #DFE1E5;
+
+}
+
+     5°Reordenar los contenedores HTML para la barra de búsqueda
+       Resultado:
+
+            <form action="" class="main-child search-control">
+                    <div class="search-control-outer">
+                        <div class="search-control-border">
+                                <picture class="search-control-part1">
+                                    <span>
+                                        <img src="./Iconos/Iconos del Main/lupa.png" alt="Lupa" class="main-icon searching-icon">
+                                    </span>
+                                </picture>
+                                <input type="search" name="búsqueda">
+                                <div class="search-control-part3">
+                                    <div>
+                                        <picture>
+                                            <span>
+                                                <img src="./Iconos/Iconos del Main/X.png" alt="Cerrar" class="main-icon closing-search">
+                                            </span>
+                                        </picture>
+                                    </div>
+                                    <div>
+                                        <picture>
+                                            <img src="./Iconos/Iconos del Main/micro.png" alt="Micrófono" class="main-icon voice-searching">                                        
+                                        </picture>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+            </form>
+
+        6° Borrar todas las propiedades CSS que tengan que ver con el segundo hijo del MAIN
+       
+        7° Establecer el ancho de la barra de búsqueda
+           Propiedad: width
+           Resultado: 
+
+.search-control-outer{
+    width: 35rem;
+}
+
+        8° Establecer que cuando la pantalla crezca, el ancho permancezca en lo establecido en el paso anterior
+           Propiedad: max-width
+           Resultado: 
+
+.search-control-outer{
+    width: 35rem;
+    max-width: 35rem;
+    margin: 0 auto;
+}
+
+       9° Vamos a trabajar con un contenedor más adentro (que también es <div>). 
+          Alinear sus hijos en el mismo eje horizontal y en el centro
+          Propiedad: - display: flex
+                     - justify-content
+          Resultado: 
+
+.search-control-border{
+    display: flex;
+    justify-content: center;
+}
+
+        10° Establecer el borde de la barra de búsqueda (No se aplica al INPUT, sino al DIV que tiene la clase: search-control-border
+            Propiedad: -Border
+            Resultado: 
+
+.search-control-border{
+    display: flex;
+    justify-content: center;
+  ->border: 0.1rem solid #DFE1E5;
+}
+        
+         11° Redonder el borde de la barra de búsqueda
+             Resultado: 
+
+.search-control-border{
+    display: flex;
+    justify-content: center;
+    border: 0.1rem solid #DFE1E5;
+  ->border-radius: 1rem;
+}
+
+        12° Aumentar la altura de la barra de búsqueda. Esto a su vez nos hace aumentar el border-radius
+            Propiedad: - height
+            Resultado: 
+
+.search-control-border{
+    display: flex;
+    justify-content: center;
+    border: 0.1rem solid #DFE1E5;
+  ->border-radius: 2rem;
+  ->height: 3.4rem;
+}
+ 
+
+       13° Aumentar el largo (width) del INPUT
+           Propiedad: - width
+           Resultado: 
+
+.search-control-border input{
+    width: 27rem;
+}
+
+       14° Incrementar el ancho del contenedor (picture) de la lupa
+           Objetivo: Poder centrar a la lupa posteriormente
+           Resultado: 
+ 
+.search-control-border picture:nth-child(1){
+    width: 2rem;
+}
+
+       15° Centrar la lupa
+           Propiedades: -display: flex 
+                        - justify-content
+                        - align-items
+           Resultados: 
+
+.search-control-border picture:nth-child(1){
+    width: 2.8rem;
+  ->display: flex;
+  ->justify-content: flex-start;
+  ->align-items: center;
+}
+
+     16° Ubicar "X" y el micrófono en el mismo eje horizontal 
+         Propiedades: - display: flex
+                 
+         Resultado: 
+
+.search-control-part3{
+    display: flex;
+}
+         
+     17° Aumentar el ancho del contenedor de la "x" y el micrófono
+         Propiedad: -width
+         Resultado: 
+.search-control-part3{
+    width: 3.5rem;
+    display: flex;
+}
+
+    18° Aumentar la altura de los contenedores DIV de la  "X" y el micrófono respectivamente
+        Resultado: 
+
+.search-control-part3 div{
+    height: 100%;
+}
+
+   19° Distribuir uniformemente los contenedores DIV de la "x" y el micrófono dentro de su elemento padre DIV
+       Propiedad: - flex-grow
+       Resultado: 
+
+.search-control-part3 div{
+    height: 100%;
+  ->flex-grow: 1;
+}
+
+   20° Alinear la "X" y el micrófono en el centro (en el eje vertical)
+       Resultado: 
+
+.search-control-part3 div{
+    height: 100%;
+    flex-grow: 1;
+ -> display: flex;
+}
+
+.search-control-part3 div picture{
+    flex-grow: 1;
+    display: flex;
+}
+
+.search-control-part3 div picture span{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-control-part3 div:nth-child(2) picture{
+    justify-content: center;
+    align-items: center;
+}
+
+   21° Aumentar el tamaño del micrófono y alinear
+       Resultado:   
+ 
+.voice-searching{
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+}
+
+   22° Disminuir el tamaño de la "X" y esclarecer su color
+       Resultado: 
+
+.closing-search{
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.6;
+}
+
+    23° Reducir el tamaño del contendor INPUT
+        Resultado: 
+
+.search-control-border input{
+    width: 24rem;
+}
+
+    24° Disminuir el tamaño del INPUT
+        Resultado:
+ 
+.search-control-border input{
+   ->width: 23rem;
+}
+         
+     25° Aumentar el tamaño del contenedor de clase "search-control-part3" ocupando la parte que sobra del contenedor "search-control-border"
+         Propiedad: -flex-grow
+         Resultado: 
+             
+.search-control-part3{
+    width: 5rem;
+    display: flex;
+    flex: 1;
+}
+
+--> NOS QUEDAMOS AQUÍ 15/09/2022
+     
+     26° Disminuir el tamaño del contenedor de los icono "X" y "micrófono"
+         Objetivo: poder dibujar el borde derecho que divide la "x" del "micrófono"
+         Resultado: 
+
+.search-control-part3 div picture{
+    flex-grow: 1;
+    display: flex;
+  ->width: 80%;
+  ->height: 80%;
+}
+
+
+    27° Centrar los contenedores de "x" y el "micrófono" porque al realizar el paso anterior, se descentraron
+        Propiedad: align-items
+        Resultado: 
+
+.search-control-part3 div{
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+  ->align-items: center;
+}
+
+    28° Cambiar el margin-right del icono de "micrófono" por margin-left, ya que después de los cambios hechos, este se separó del borde derecho
+         Resultado: 
+.voice-searching{
+    width: 2rem;
+    height: 2rem;
+  ->margin-left: 0.5rem;
+}
+
+  29° Trazar la líne divisoria del icono de "X" y el "micrófono"
+      Propiedad: - border-right
+      Resultado: 
+
+.search-control-part3 div:nth-child(1) picture{
+  -> border-right: 0.1rem solid #DADCE0;
+} 
+
+   30° Quitar el margin del paso 28°
+       Resultado: 
+.voice-searching{
+    width: 2rem;
+    height: 2rem;
+}
+
+   31° Agregar un padding derecho al contenedor "picture" del ícono de la X}
+       Objetivo: Centrar a la línea dibujada entre la "X" y el "micrófono"
+       Resultado: 
+
+.search-control-part3 div:nth-child(1) picture{
+    border-right: 0.1rem solid #DADCE0;
+  ->padding-right: 0.5rem;
+} 
+
+
+PROBLEMA 2: El logo de Google, al llegar a un ancho de pantalla de 800 px pierde calidad
+Razón probable: que la medida del logo debería estar en %
+
+   1°  Quitarle las medidas al logo de Google
+       Resultado: 
+
+.main-logo img{
+    margin-top: 5.5rem;
+    margin-bottom: 2.5rem;
+}
+
+   2° Darle medidas al contenedor del logo de google y al logo 
+
+      Resultado: 
+
+.main-logo{
+    display: flex;
+    justify-content: center;
+  ->width: 15rem;
+  ->height: 9rem;
+  ->margin: 0 auto;
+}
+
+.main-logo img{
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
+  ->width: 100%;
+}
+
+   4° Eliminar propieades redundantes
+      Resultados:
+
+ANTES: 
+.main-logo{
+    display: flex;
+    justify-content: center;
+  ->width: 15rem;
+  ->height: 9rem;
+  ->margin: 0 auto;
+}
+
+DESPUÉS:
+.main-logo{
+    width: 15rem;
+    height: 9rem;
+    margin: 0 auto;
+}
+
+
+
+   5° Agregarle un DIV al contenedor PICTURE del logo de google
+
+      Resultado: 
+
+            <div>
+                <picture class="main-child main-logo">
+                    <source media="(min-width: 800px)" srcset="./Logos/LogoGoogle-large.png">
+                    <img src="./Logos/LogoGoogle-small.png" alt="logo-de.Google">
+                </picture>
+            </div>
+
+    6° Agregar un margen superior e inferior al contenedor PICTURE del logo de google
+       Resultados: 
+
+.main-logo{
+    width: 15rem;
+    height: 9rem;
+    margin: 0 auto;
+ -> margin-top: 2.8rem;
+ -> margin-bottom: 0.5rem
+}
+
+Nota: llegué a la conclusión que cuando hagamos la adaptación para pantallas mayores a 800 px, ahí podremos solucionar este punto
+
+
+______
+
+   39° Eliminar la "x" porque en pantallas móviles no aparece
+       Propiedad:  - display: none
+
+       Resultado: 
+
+.search-control-part3 div:nth-child(1) picture{
+    border-right: 0.1rem solid #DADCE0;
+    padding-right: 0.5rem;
+ -> display: none;
+} 
+
+
+
+40° Realizar el commit al servidor local y luego enviar los archivos al servidor remoto.
+        
+
 
 Fase 6 Elaborar el Footer - HTML
 Fase 7 Elaborar el Footer - CSS

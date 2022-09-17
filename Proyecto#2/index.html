@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/styleMobile.css"> <!-- Css para moviles-->
     <title>Document</title>
 </head>
@@ -43,7 +46,48 @@
         </header>
     
         <main>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum iusto voluptate veniam fugiat. Quia dicta culpa, magnam perspiciatis totam minus accusantium blanditiis labore asperiores corporis ipsam impedit deserunt repellendus ullam.
+            <div>
+                <picture class="main-child main-logo">
+                    <source media="(min-width: 800px)" srcset="./Logos/LogoGoogle-large.png">
+                    <img src="./Logos/LogoGoogle-small.png" alt="logo-de.Google">
+                </picture>
+            </div>
+
+            <form action="" class="main-child search-control">
+                    <div class="search-control-outer">
+                        <div class="search-control-border">
+                                <picture class="search-control-part1">
+                                    <span>
+                                        <img src="./Iconos/Iconos del Main/lupa.png" alt="Lupa" class="main-icon searching-icon">
+                                    </span>
+                                </picture>
+                                <input type="search" name="búsqueda">
+                                <div class="search-control-part3">
+                                    <div>
+                                        <picture>
+                                            <span>
+                                                <img src="./Iconos/Iconos del Main/X.png" alt="Cerrar" class="main-icon closing-search">
+                                            </span>
+                                        </picture>
+                                    </div>
+                                    <div>
+                                        <picture>
+                                            <img src="./Iconos/Iconos del Main/micro.png" alt="Micrófono" class="main-icon voice-searching">                                        
+                                        </picture>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+            </form>
+
+            <div class="main-child text-1">
+                <p> Google offered in:</p>
+            </div>
+
+            <div class="main-child blue-text">
+                <p> <a href="./"> Español (Latinoamérica) </a></p>
+                <p> <a href="./"> Quechua </a></p>
+            </div>
         </main>
     
         <footer>
