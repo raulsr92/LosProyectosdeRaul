@@ -1,0 +1,65 @@
+/* Fase 1 Adaptaciones en el Header  */
+
+.icon-one img{
+    display: none;
+}
+
+.icon-two div img{
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.user-photo img{
+    width: 3.2rem;
+    height: 3.2rem;
+}
+
+.icon-two{
+    flex-grow: 0;
+}
+
+.list-menu{
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list-menu ul li{
+    text-transform: capitalize;
+}
+
+.list-menu ul li:nth-child(2) a{
+    display: block;
+}
+
+.list-menu ul li:nth-child(1) {
+    display: none ;
+}
+
+.list-menu ul li a{
+    font-size: 1.3rem;
+}
+
+.icon-two div, .user-photo div{
+    width: 3.7rem;
+    height: 3.7rem;
+}
+
+header{
+    margin-top: 1.3rem;
+}
+
+.user-photo {
+    margin-right: 1.4rem;
+    margin-left: 1rem;
+}
+
+.icon-two{
+    margin-left: 1rem;
+}
+
+/* Fase 2 Adaptaciones en el Main  */
+
+
+
+
