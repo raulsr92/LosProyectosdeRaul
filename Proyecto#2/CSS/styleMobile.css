@@ -18,7 +18,6 @@ footer{
     background-color: orange;
     flex-grow: 1;
     width: 100%;
-    height: 25vh;
 }
 
 /* Fase 2 Elaborar el Header*/
@@ -125,7 +124,6 @@ header{
 main{
     flex-grow: 1;
     width: 100%;
-    height: 70vh;
     display: flex;
     flex-direction: column;
 }
@@ -151,6 +149,7 @@ main{
 .search-control-border input{
     width: 23rem;
 }
+
 .search-control-part1{
     width: 3.2rem;
     display: flex;
@@ -228,6 +227,18 @@ main{
 }
 .blue-text{
     column-gap: 1.8rem;
+    display: flex;
+}
+
+.main-button{
+    display: none;
+}
+
+.text-customize{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 29rem;
 }
 
 /* Fase 4 Elaborar el Footer*/
@@ -274,6 +285,10 @@ footer{
 
 .first-list, .second-list{
     margin-top: 2rem;
+}
+
+.second-list{
+    margin-bottom: 2rem;
 }
 
 .first-text{

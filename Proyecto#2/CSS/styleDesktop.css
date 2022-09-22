@@ -58,8 +58,126 @@ header{
     margin-left: 1rem;
 }
 
+.list-menu ul li:hover{
+    text-decoration: underline;
+}
+
+
 /* Fase 2 Adaptaciones en el Main  */
 
+.main-logo{
+    width: 28rem;
+    height: 15rem;
+    margin-top: 8rem;
+    margin-bottom: 0;
+}
 
+.main-logo img{
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
+.search-control-outer{
+    max-width: 58em;
+    width: 58rem;
+}
+
+.search-control-border{
+    height: 4.5rem;
+}
+
+.search-control-border input{
+    width: 45rem;
+}
+
+.search-control-part1{
+    width: 4.3rem;
+}
+
+.searching-icon{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.voice-searching{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.main-button{
+    display: block;
+    height: 3.5rem;
+    background-color: #F8F9FA;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+.search-control{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 3rem;
+    margin-bottom: 2.8rem;
+}
+
+.search-control section{
+    display: flex;
+    column-gap: 1.2rem;
+}
+
+.first-button{
+    width: 12.3rem;
+}
+
+.second-button{
+    width: 14.2rem;
+}
+
+.text-customize{
+    flex-direction: row;
+    column-gap: 1rem;
+    margin-bottom: 22.5rem;
+}
+
+.text-1{
+    margin-bottom: 0;
+}
+
+.text-1 p{
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.blue-text p a{
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.blue-text{
+    column-gap: 1rem;
+}
+
+.search-control-border:hover{
+    box-shadow: 0px 2px 6px 2px #E2E2E3;
+}
+
+.main-button:hover{
+    border: solid 0.1rem #E2E2E3;
+    box-shadow: 0px 1px 2px 0px #E2E2E3;
+}
+
+.search-control-part3 div:nth-child(2){
+    cursor: pointer;
+}
+
+.blue-text p a:hover{
+    text-decoration: underline;
+}
+
+.search-control-border input{
+    outline: none;
+}
+
+/* Fase 2 Adaptaciones en el Footer */
 
