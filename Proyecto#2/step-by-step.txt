@@ -2518,7 +2518,7 @@ _______________________________________
 .text-customize{
     flex-direction: row;
     column-gap: 1rem;
- -> margin-bottom: 22.5rem;
+ -> margin-bottom: 22.25rem;
 }
 
 Nota: De esta manera ya no necesito agregar un "height# al main y depender de eso
@@ -2654,6 +2654,336 @@ el simulador: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_a
 
 
 
+Fase 3 Adaptaciones en el FOOTER
+ 
+
+    1° Aumentar el ancho del contenedor del texto "Peru"
+       Resultado: 
+
+.first-text{
+  -> height: 5rem;
+}
+
+    2° Ocultar la fila sin contenido
+       Resultado:
+
+.empty-text{
+  -> display: none;
+}
+
+   3° En la ultima fila del footer, tengo que poner en la misma fila a 2 filas
+      diferentes de la vista mobile (una de clase"first-list" y la segunda de
+      clase "second-list"). Para ello haré los sgtes pasos:
+
+      Nota: esto lo huviera podido realizar desde la vista mobile, por eso es
+            importante siempre ver los 2 diseños (o 3 segun sea el caso)
+        3.1 Colocar ambas listas dentro de un contenedor (modificación en el HTML)
+
+ANTES
+
+            <div class="footer-child first-list">
+                <ul>
+                    <li> <a href="."> Dark theme: off</a></li>
+                    <li> <a href="."> Settings</a></li>
+                    <li> <a href="."> Privacy</a></li>
+                    <li> <a href="."> Terms</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-child second-list">
+                <ul>
+                    <li> <a href="."> Advertising</a></li>
+                    <li> <a href="."> Business</a></li>
+                    <li> <a href="."> About</a></li>
+                </ul>
+            </div>
+
+
+DESPUÉS
+
+            <div class="new-child">
+                <div class="footer-child first-list">
+                    <ul>
+                        <li> <a href="."> Dark theme: off</a></li>
+                        <li> <a href="."> Settings</a></li>
+                        <li> <a href="."> Privacy</a></li>
+                        <li> <a href="."> Terms</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-child second-list">
+                    <ul>
+                        <li> <a href="."> Advertising</a></li>
+                        <li> <a href="."> Business</a></li>
+                        <li> <a href="."> About</a></li>
+                    </ul>
+                </div>
+            </div> 
+
+
+       3.2 Ahora que tenemos un contenedor DIV para ambas listas, necesitamos 
+           alinear ambas listas en el eje horizontal 
+           Propiedad: display: flex
+           Resultado: 
+
+.new-child{
+ -> display: flex;
+}
+
+
+__________________________________________
+
+    4° Agregar en el codigo HTML, en la 2° lista (class="footer-child second-list")
+       un elemento <li> denominado: "How Search works"
+       Resultado: 
+
+ANTES
+
+                <div class="footer-child second-list">
+                    <ul>
+                        <li> <a href="."> Advertising</a></li>
+                        <li> <a href="."> Business</a></li>
+                        <li> <a href="."> About</a></li>
+                    </ul>
+                </div>
+
+DESPUÉS
+
+                <div class="footer-child second-list">
+                    <ul>
+                        <li> <a href="."> Advertising</a></li>
+                        <li> <a href="."> Business</a></li>
+                        <li> <a href="."> About</a></li>
+                     -> <li> <a href="."> How Search works </a></li>
+                    </ul>
+                </div>
+
+   5° Ocultar el nuevo elemento agregado en la 2° lista para la vista MOBILE
+      Nota: agregar esta propiedad en el archivo styleMobile.css
+      Resultado: 
+
+.second-list li:nth-child(4) a{
+  -> display: none;
+}
+
+   6° Mostar el nuevo elemento agregado en la 2° lista para la vista DESKTOP
+      Resultado:
+
+  .second-list li:nth-child(4) a{
+ -> display: block ;
+}
+
+  7° Intercambiar el order de los hijos del DIV de class="new-child"
+     Objetivo: Queremos la segunda lista (class="footer-child second-list") 
+               al lado izquiero y la primera lista (class="footer-child first-list")
+               al lado derecho
+     Propiedades: 
+             - order
+     Nota: para poder usar esta propiedad, el container debe tener un display:flex
+     Resultado:
+
+.first-list{
+  ->order: 2;
+}
+
+.second-list{
+  ->order: 1;
+}
+
+
+   9° Aumentar el tamaño del texto que está debajo de Perú
+      Resultado: 
+
+.first-list a, .second-list a{
+  -> font-size: 1.4rem;
+}
+
+
+   10° Aumentar el grosor del texto que está debajo de Perú
+      Resultado: 
+
+.first-list a, .second-list a{
+    font-size: 1.4rem;
+ -> font-weight: 600;
+}
+
+
+
+  11° Quitar los margenes superior e inferior de las listas de texto 
+      (class="footer-child first-list") y (class="footer-child first-list")
+       Resultado: 
+
+.first-list, .second-list{
+ -> margin-top: 0;
+ -> margin-bottom: 0;
+}
+
+  12° Agregar margenes superior e inferior al contedor DIV de class="new-child"
+      Resultado: 
+
+.new-child{
+    display: flex;
+ -> margin-top: 1.37rem;
+ -> margin-bottom: 1.37rem;
+}
+
+
+  13° Cambiar el orden de las opciones de la ultima fila de texto de la lista de 
+      clase >>>> class="footer-child second-list"
+
+      Otorgar el siguiente orden:
+          1° About
+          2° Advertising
+          3° Business
+          4° How Search works
+      Propiedad: 
+          - Order
+      Nota: para poder usar esta propiedad, el container debe tener un display:flex
+      Resultado:
+         .second-list ul li:nth-child(1){
+    order: 2;
+}
+
+.second-list ul li:nth-child(2){
+    order: 3;
+}
+
+.second-list ul li:nth-child(3){
+    order: 1;
+}
+
+.second-list ul li:nth-child(4){
+    order: 4;
+}   
+
+  14° Ocultar el "Dark theme: off" de lista de clase >>>> class="footer-child first-list"
+      Resultado:
+
+.first-list li:nth-child(1) a{
+  ->display: none;
+}
+ 
+  15° Cambiar el orden de las opciones de la ultima fila de texto de la lista de 
+      clase >>>> class="footer-child first-list"
+
+      Otorgar el siguiente orden:
+          1° Privacy
+          2° Terms
+          3° Settings
+
+      Propiedad: 
+          - Order
+      Nota: para poder usar esta propiedad, el container debe tener un display:flex
+      Resultado:
+
+.first-list ul li:nth-child(2){
+    order: 3;
+}
+
+.first-list ul li:nth-child(3){
+    order: 1;
+}
+
+.first-list ul li:nth-child(4){
+    order: 2;
+}
+
+
+  16° Acommodar la la primera lista al final del contenedor DIV class="new-child"
+      Propiedad: 
+         - justify-content: space-between
+      Resultado: 
+
+.new-child{
+    display: flex;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+ -> justify-content: space-between;
+}
+
+ 17° Aumentar el margen  izquierdo de la palabra "Peru"
+     Resultado:
+
+.first-text{
+    height: 5rem;
+ -> padding-left: 3rem;
+}
+
+
+18° Aumentar el margen izquierdo de la palabra "About"
+    Resultado:
+
+.second-list{
+    order: 1;
+ -> padding-left: 3.5rem;
+}
+
+  
+  19° Aumentar el margen derecho de la palabra "Setting"
+
+.first-list{
+    order: 2;
+ -> padding-right: 3.5rem;
+}
+
+  20° Realizar ultimos ajustes al FOOTER
+
+      Resultado:
+.first-text p{
+ -> font-size: 1.5rem;
+}
+
+
+  21° Aplicar Hover a los elementos de la útlima fila de texto
+      Resultado: 
+
+.first-list a:hover, .second-list a:hover{
+    text-decoration: underline;
+}
+
+
+  22° Detecté un problema: la altura de mi página no estaba siendo responsive, porque
+      al tener pantallas con diferentes alturas, me estaba quedando un espacio en 
+      blanco debajo del footer.
+      Eso ha sucedido por no usar medidas relativas en el HEIGHT 
+      Estuve probando propiedades y me funcionó con estas 2 propiedades en el contenedor
+      padre de todo (solo las he probado en el navegador, falta introducirlas en el código
+      y hacer pequeños ajustes para losmargenes o paddings)
+
+      Propiedades: 
+        -height: 100 vh >>> util para que la altura varíe dependiendo de la altura del 
+                             viewport (pantalla)
+        - align-content: space - between >>> util para mandar al HEADER  a la parte superior,
+                                             al FOOTER  al aparte superior y al MAIN al medio
+                         Nota: Es de utilidad el margin dado al MAIN (al elemento de 
+                               clase class"text-customize") tanto el movil como en desktop
+                               para poder mover el MAIN ligereamente hacia arriba
+
+
+ANTES:
+
+.main-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+DESPUÉS:
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+ -->height: 100vh;      
+ -->align-content: space-between;
+}
+
+
+  23° Realizar el commit al servidor local y luego enviar los archivos al servidor remoto.
+
+
+
+
+
+Fin del Proyecto: Sábado 24/09/2022, siendo las 1:16 pm - Lima - Perú
 
 
 

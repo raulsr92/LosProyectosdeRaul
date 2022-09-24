@@ -12,6 +12,9 @@ html{
 .main-container{
     display: flex;
     flex-wrap: wrap;
+    height: 100vh;
+    align-content: space-between;
+
 }
 
 footer{
@@ -294,3 +297,10 @@ footer{
 .first-text{
     padding-left: 1rem;
 }
+
+/* Fase 4 Elaborar el Footer - agregado al realizar el footer para desktop*/ 
+
+.second-list li:nth-child(4) a{
+    display: none;
+}
+

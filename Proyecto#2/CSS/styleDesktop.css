@@ -137,7 +137,7 @@ header{
 .text-customize{
     flex-direction: row;
     column-gap: 1rem;
-    margin-bottom: 22.5rem;
+    margin-bottom: 22.25rem;
 }
 
 .text-1{
@@ -179,5 +179,84 @@ header{
     outline: none;
 }
 
-/* Fase 2 Adaptaciones en el Footer */
+/* Fase 3 Adaptaciones en el Footer */
 
+.first-text{
+    height: 5rem;
+    padding-left: 3rem;
+}
+
+.empty-text{
+    display: none;
+}
+
+.new-child{
+    display: flex;
+    margin-top: 1.37rem;
+    margin-bottom: 1.37rem;
+    justify-content: space-between;
+}
+
+.second-list li:nth-child(4) a{
+    display: block ;
+}
+
+.first-list{
+    order: 2;
+    padding-right: 3.5rem;
+}
+
+.second-list{
+    order: 1;
+    padding-left: 3.5rem;
+}
+
+.first-list a, .second-list a{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.first-list, .second-list{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.second-list ul li:nth-child(1){
+    order: 2;
+}
+
+.second-list ul li:nth-child(2){
+    order: 3;
+}
+
+.second-list ul li:nth-child(3){
+    order: 1;
+}
+
+.second-list ul li:nth-child(4){
+    order: 4;
+}
+
+.first-list li:nth-child(1) a{
+    display: none;
+}
+
+.first-list ul li:nth-child(2){
+    order: 3;
+}
+
+.first-list ul li:nth-child(3){
+    order: 1;
+}
+
+.first-list ul li:nth-child(4){
+    order: 2;
+}
+
+.first-text p{
+    font-size: 1.5rem;
+}
+
+.first-list a:hover, .second-list a:hover{
+    text-decoration: underline;
+}
