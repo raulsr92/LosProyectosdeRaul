@@ -204,8 +204,8 @@ main{
     line-height: 2.3rem;
     font-weight: 700;
     color: #FF9536;
-    text-align: left;
-    margin-left: 6%;
+    /*text-align: left;*/
+    /*margin-left: 6%;*/
     margin-bottom: 1.2rem;
 }
 
@@ -324,7 +324,7 @@ main{
     max-width: 50rem;
     margin: 0 auto;
     height: 24.1rem;
-    margin-top: 4.8rem;
+    /*margin-top: 4.8rem;*/
     font-family: 'Inter', sans-serif;
 }
 
@@ -742,7 +742,75 @@ main{
     background-position: center;
 }
 
+/* 5. Estilos del Footer */
 
+footer{
+    width: 100%;
+    min-width: 32rem;
+    height: 15rem;
+    background-color: var(--bitcoin-orange);
+    display: flex;
+    justify-content: space-between;
+}
+
+footer div:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    margin: 4rem 0 4rem 6.5rem ;
+    row-gap: 0.8rem;
+}
+
+footer div:nth-child(1) a{
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--just-white);
+}
+
+footer div:nth-child(2){
+    width: 6.4rem;
+    height: 5rem;
+    margin: 5.1rem 5.8rem 4.9rem 5.2rem;
+}
+
+/* Realizar Scroll a la sección de tablas */
+
+.main-currency-table{
+    width: 100%;
+    min-width: 32rem;
+    scroll-snap-align: center;
+}
+
+.currency-table--container{
+    width: 61.5%
+}
+
+.currency-table--date{
+    width: 17.3rem;
+}
+
+.main-comision-table{
+    width: 100%;
+    min-width: 32rem;
+    scroll-snap-align: center;
+}
+
+.comision-table--container{
+    width: 85%;
+    margin: 0 auto 1.6rem;
+}
+
+.main-tables-container{
+    display: flex;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+
+.main-tables-container::-webkit-scrollbar{
+    display: none;
+}
 
 /* Estilios para tabla utilizando grid layout */
 /*
