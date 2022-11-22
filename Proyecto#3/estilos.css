@@ -774,6 +774,12 @@ footer div:nth-child(2){
     margin: 5.1rem 5.8rem 4.9rem 5.2rem;
 }
 
+footer div:nth-child(2) img{
+    width: 6.4rem;
+    height: 5rem;
+}
+
+
 /* Realizar Scroll a la sección de tablas */
 
 .main-currency-table{
